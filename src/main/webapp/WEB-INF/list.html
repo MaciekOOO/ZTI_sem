@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Spring Boot</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<a href="/">Home</a>
+	<table>
+	<tr>
+		<td>Name</td> <td>Last name</td> <td>E-mail</td> <td>City</td> <td>Phone</td>
+	</tr>
+    <tr th:each="person: ${people}">
+        <td th:text="${person.fname}" />
+        <td th:text="${person.lname}" />
+        <td th:text="${person.email}" />
+        <td th:text="${person.city}" />
+        <td th:text="${person.tel}" />
+        <td> <a th:href="@{'/delete/' + ${person.id}}">Delete</a> </td>
+    </tr>
+    </table>
+</body>
+</html>

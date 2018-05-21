@@ -5,4 +5,4 @@ import org.springframework.data.repository.*;
 import com.example.demo.model.Person;
 
 @Repository
-public interface PersonRepository extends CrudRepository<Person, Long> {}
+public interface PersonRepository extends CrudRepository<Person, Integer> {}

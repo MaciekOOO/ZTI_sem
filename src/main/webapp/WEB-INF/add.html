@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Spring Boot</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<a href="/">Home</a>
+	<form action="#" th:action="@{/save}" th:object="${person}" method="post">
+    <table>
+        <tr>
+            <td><label th:text="#{msg.fname}" /></td>
+            <td><input type="text" th:field="*{fname}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.lname}" /></td>
+            <td><input type="text" th:field="*{lname}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.email}" /></td>
+            <td><input type="text" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.tel}" /></td>
+            <td><input type="text" th:field="*{tel}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.city}" /></td>
+            <td><input type="text" th:field="*{city}" /></td>
+        </tr>
+       </table>
+		<input type="submit" value="Submit" />
+	</form>
+</body>
+</html>

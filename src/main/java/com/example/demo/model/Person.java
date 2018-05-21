@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@NamedQuery(name="findAll", query="SELECT p FROM Person p ORDER BY p.lname")
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
