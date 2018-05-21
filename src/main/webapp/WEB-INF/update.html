@@ -9,8 +9,9 @@
 <body>
 	<a href="/">Home</a> <br/>
 	
-	<h1 th:text="#{msg.addPersonMessage}" />
-	<form action="#" th:action="@{/save}" th:object="${person}" method="post">
+	<h1 th:text="#{msg.updatePersonMessage}" />
+	<form action="#" th:action="@{/saveUpdate}" th:object="${person}" method="post">
+	<input type="hidden" th:field="*{id}" />
     <table>
         <tr>
             <td><label th:text="#{msg.fname}" /></td>

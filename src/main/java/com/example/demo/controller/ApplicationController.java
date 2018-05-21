@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -65,5 +66,36 @@ public class ApplicationController {
 		catch (Exception e) { System.out.println(e); }
 		
 		return this.getPeople(model);
+	}
+	
+	@GetMapping("/update/{id}")
+	public String updatePerson(@PathVariable("id") Integer id, Model model) {
+		Person person = null;
+		try {
+			person = personRepository.findById(id).get();
+			model.addAttribute("person", person);
+			
+			System.out.println("Update id: " + person.getId());
+			return "update";
+		}
+		catch (Exception e) { System.out.println(e); }
+		
+		return "list";
+	}
+	
+	@PostMapping("/saveUpdate")
+	public String saveUpdatePerson(@Valid @ModelAttribute Person person, BindingResult errors, Model model) {
+		if (!errors.hasErrors()) {
+            try {
+            	System.out.println("save Update id: " + person.getId());
+            	personRepository.save(person);
+            }
+            catch (Exception e) { System.out.println(e); }
+        	
+        	return this.getPeople(model);
+        }
+        else {
+        	return "update/" + person.getId();
+        }
 	}
 }

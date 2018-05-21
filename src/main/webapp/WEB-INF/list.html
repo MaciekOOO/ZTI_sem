@@ -7,8 +7,9 @@
 </head>
 
 <body>
-	<a href="/">Home</a>
-	<table>
+	<a href="/">Home</a> <br/>
+	
+	<table border="1">
 	<tr>
 		<td>Name</td> <td>Last name</td> <td>E-mail</td> <td>City</td> <td>Phone</td>
 	</tr>
@@ -19,6 +20,7 @@
         <td th:text="${person.city}" />
         <td th:text="${person.tel}" />
         <td> <a th:href="@{'/delete/' + ${person.id}}">Delete</a> </td>
+        <td> <a th:href="@{'/update/' + ${person.id}}">Update</a> </td>
     </tr>
     </table>
 </body>
